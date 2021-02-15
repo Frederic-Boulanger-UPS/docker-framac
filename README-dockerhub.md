@@ -51,6 +51,7 @@ Contents of the repository
   * `buildx` builds the arm64/amd64 image and pushes it to dockerhub
   * `run` runs the image in a new container
 * `run-docker-framac.sh` runs the image in a new container. It also takes care of setting up things so that the container can use your X server to display GUI applications.
+* `run-docker-framac.ps1` Windows PowerShell version of the previous script.
 * `test-framac` contains code and two scripts to check if frama-c and frama-c-gui work
 * `test-why3` contains code and two scripts to check why3 in command line and in ide/gui modes
 * `frama-c`, `frama-c-gui` and `why3` are shell scripts that can be used as proxy on the host machine to the corresponding programs in the container.
