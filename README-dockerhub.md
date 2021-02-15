@@ -20,7 +20,7 @@ docker run --rm --tty --interactive \
 ### Using the scripts available on GitHub
 It is easier to use the scripts available on [GitHub](https://github.com/Frederic-Boulanger-UPS/docker-framac).
 
-In a terminal, run `make run` or `./run-docker-framac.sh`.
+In a terminal, run `make run` or `./run-docker-framac.sh`. On Windows, you can use `run-docker-framac.ps1` with PowerShell.
 After pulling the image from dockerhub, you should be logged as root in the container.
 You can then use `z3`, `cvc4`, `alt-ergo`, `eprover`, `why3`, `frama-c`and `frama-c-gui`.
 
