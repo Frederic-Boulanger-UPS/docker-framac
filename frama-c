@@ -1,0 +1,12 @@
+#!/bin/sh
+repo="fredblgr"
+image="framac"
+tag="2021"
+
+args="cd /workspace; `basename $0` $*"
+
+docker run --rm --tty \
+           --volume "$(PWD):/workspace:rw" \
+           --name "$image$tag" \
+           $repo/$image:$tag \
+       sh -c "${args}"

@@ -1,0 +1,28 @@
+#!/bin/sh
+repo="fredblgr"
+image="framac"
+tag="2021"
+
+args="cd /workspace; `basename $0`"
+
+for a in $*
+do
+  case $a in
+    ide) args="$args ide"
+         if [[ `uname` == "Darwin" ]]
+         then
+           open -a XQuartz
+         fi
+         xhost +localhost
+    ;;
+    
+    *)   args="$args $a"
+    ;;
+  esac
+done
+docker run --rm --tty \
+           --volume "$(PWD):/workspace:rw" \
+           --name "$image$tag" \
+           --env="DISPLAY=host.docker.internal:0" \
+           $repo/$image:$tag \
+       sh -c "${args}"
