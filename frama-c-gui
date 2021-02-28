@@ -3,7 +3,7 @@ repo="fredblgr"
 image="framac"
 tag="2021"
 
-args="cd /workspace; `basename $0` $*"
+args="`basename $0` $*"
 
 if [[ `uname` == "Darwin" ]]
 then
@@ -15,5 +15,6 @@ docker run --rm --tty \
            --volume "$(PWD):/workspace:rw" \
            --name "$image$tag" \
            --env="DISPLAY=host.docker.internal:0" \
+           --workdir /workspace \
            $repo/$image:$tag \
-       sh -c "${args}"
+       ${args}

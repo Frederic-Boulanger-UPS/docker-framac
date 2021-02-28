@@ -3,10 +3,11 @@ repo="fredblgr"
 image="framac"
 tag="2021"
 
-args="cd /workspace; `basename $0` $*"
+args="`basename $0` $*"
 
 docker run --rm --tty \
            --volume "$(PWD):/workspace:rw" \
            --name "$image$tag" \
+           --workdir /workspace \
            $repo/$image:$tag \
-       sh -c "${args}"
+       ${args}

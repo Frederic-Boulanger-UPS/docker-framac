@@ -14,4 +14,5 @@ docker run --rm --tty --interactive \
 			 --volume "$(PWD):/workspace:rw" \
 			 --name framac2021 \
 			 --env="DISPLAY=host.docker.internal:0" \
+			 --workdir /workspace \
 			 fredblgr/framac:2021
