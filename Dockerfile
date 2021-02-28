@@ -55,3 +55,7 @@ RUN wget https://git.frama-c.com/pub/frama-c/-/archive/22.0/frama-c-22.0.tar.gz
 RUN tar zxf frama-c-22.0.tar.gz; cd frama-c-22.0; autoconf; ./configure; \
 		make; make install ; \
 		cd ..; rm -rf frama-c-22.0*
+
+RUN useradd --create-home --skel /root --shell /bin/bash --user-group ubuntu \
+    && echo "ubuntu:ubuntu" | chpasswd
+USER ubuntu
