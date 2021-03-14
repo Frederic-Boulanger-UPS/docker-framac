@@ -1,5 +1,5 @@
 # docker-framac
-Frama-C, Why3 and a selection of SMT solvers in a multi architecture (amd64 and arm64) image.
+Frama-C with MetAcsl, Why3 and a selection of SMT solvers in a multi architecture (amd64 and arm64) image.
 
 Available on dockerhub: [https://hub.docker.com/r/fredblgr/framac](https://hub.docker.com/r/fredblgr/framac)
 
@@ -19,6 +19,8 @@ You will need an X server in order to use the GUI of the applications `frama-c-g
 On MacOS, you can use [XQuartz](https://www.xquartz.org/), which can also be installed as a cask by [brew](https://brew.sh/).
 On Windows 10, you can use [VcXsrv](https://sourceforge.net/projects/vcxsrv/).
 
+**Note**: on Apple M1 machines, the setting of the X11 display in Docker does not seem to work yet.
+
 Contents of the image
 --
 This image, based on ubuntu:20.04, contains:
@@ -27,7 +29,7 @@ This image, based on ubuntu:20.04, contains:
 * E prover 2.0
 * CVC4 1.7
 * Why3 1.3.3
-* Frama-C 22.0
+* Frama-C 22.0 with MetAcsl 0.1
 
 Contents of the repository
 --
@@ -40,5 +42,6 @@ Contents of the repository
 * `run-docker-framac.sh` runs the image in a new container. It also takes care of setting up things so that the container can use your X server to display GUI applications.
 * `run-docker-framac.ps1` Windows PowerShell version of the previous script.
 * `test-framac` contains code and two scripts to check if frama-c and frama-c-gui work
+* `test-metacsl` contains code and a script to check if MetAcsl works
 * `test-why3` contains code and two scripts to check why3 in command line and in ide/gui modes
 * `frama-c`, `frama-c-gui` and `why3` are shell scripts that can be used as proxy on the host machine to the corresponding programs in the container.
