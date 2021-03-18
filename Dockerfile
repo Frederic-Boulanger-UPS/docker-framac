@@ -63,8 +63,11 @@ RUN wget https://git.frama-c.com/pub/meta/-/archive/0.1/frama-c-metacsl-0.1.tar.
 	&& cd `ls -d meta-0.1-*` \
 	&& autoconf && ./configure \
 	&& make \
-	&& make install
+	&& make install ; \
+	cd ..; rm frama-c-metacsl-0.1.tar.gz; rm -rf meta-0.1-*
 
 RUN useradd --create-home --skel /root --shell /bin/bash --user-group ubuntu \
     && echo "ubuntu:ubuntu" | chpasswd
-USER ubuntu
+
+COPY startup.sh /
+ENTRYPOINT /startup.sh

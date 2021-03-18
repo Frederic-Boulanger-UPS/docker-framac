@@ -38,6 +38,9 @@ manifest:
 	 done
 	docker manifest push $(REPO)$(NAME):$(TAG)
 
+rmmanifest:
+	docker manifest rm $(REPO)$(NAME):$(TAG)
+
 # Create new builder supporting multi architecture images
 newbuilder:
 	docker buildx create --name newbuilder
@@ -72,6 +75,7 @@ clobber:
 
 run:
 	docker run --rm --tty --interactive \
+		--env="USERNAME=`id -n -u`" --env="USERID=`id -u`" \
 		--volume ${PWD}:/workspace:rw \
 		--workdir /workspace \
 		--name $(NAME) \

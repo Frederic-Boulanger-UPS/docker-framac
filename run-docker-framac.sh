@@ -9,8 +9,9 @@ case `uname` in
 		xhost +localhost
 		;;
 esac
-		
+
 docker run --rm --tty --interactive \
+			 --env="USERNAME=`id -n -u`" --env="USERID=`id -u`" \
 			 --volume "$(PWD):/workspace:rw" \
 			 --name framac2021 \
 			 --env="DISPLAY=host.docker.internal:0" \
