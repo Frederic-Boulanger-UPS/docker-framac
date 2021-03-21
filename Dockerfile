@@ -69,5 +69,7 @@ RUN wget https://git.frama-c.com/pub/meta/-/archive/0.1/frama-c-metacsl-0.1.tar.
 RUN useradd --create-home --skel /root --shell /bin/bash --user-group ubuntu \
     && echo "ubuntu:ubuntu" | chpasswd
 
+RUN rm -rf /tmp/*
+
 COPY startup.sh /
 ENTRYPOINT /startup.sh

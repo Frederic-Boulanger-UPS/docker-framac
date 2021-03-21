@@ -9,4 +9,4 @@ if (Get-Process vcxsrv -ErrorAction SilentlyContinue) {
   $env:Path += ";C:\Program Files\VcXsrv"
   vcxsrv :0 -multiwindow
 }
-docker run --rm --tty --interactive --volume "$(PWD):/workspace:rw" --workdir /workspace --env="DISPLAY=host.docker.internal:0" --name ${IMAGE} ${REPO}${IMAGE}:${TAG}
+docker run --rm --tty --interactive --volume "$(PWD):/workspace:rw" --workdir /workspace --env "DISPLAY=host.docker.internal:0" --name "${IMAGE}-run" "${REPO}${IMAGE}:${TAG}"
