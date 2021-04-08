@@ -1,6 +1,8 @@
 #!/bin/sh
+# Ubuntu 20.04LTS headless noVNC
+# Connect to http://localhost:6080/
 REPO=fredblgr/
-IMAGE=framac
+IMAGE=docker-3asem-x11
 TAG=2021
 
 if [[ -z $SUDO_UID ]]
@@ -33,3 +35,4 @@ docker run --rm --tty --interactive \
   --workdir /workspace \
   --name ${IMAGE} \
   ${REPO}${IMAGE}:${TAG}
+

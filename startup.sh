@@ -23,5 +23,5 @@ then
   echo "# Run docker with --env=\"USERNAME=<user name>\" --env=\"USERID=<user id>\""
   exec /bin/bash
 fi
-useradd --create-home --skel /root --shell /bin/bash --user-group --password ubuntu --uid $USERID $USERNAME
+useradd --create-home --skel /root --shell /bin/bash --user-group --password ubuntu --non-unique --uid $USERID $USERNAME
 exec su $USERNAME
