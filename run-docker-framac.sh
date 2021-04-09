@@ -3,7 +3,7 @@ REPO=fredblgr/
 IMAGE=framac
 TAG=2021
 
-if [[ -z $SUDO_UID ]]
+if [ -z "$SUDO_UID" ]
 then
   # not in sudo
   USER_ID=`id -u`
@@ -14,12 +14,12 @@ else
   USER_NAME=${SUDO_USER}
 fi
 
-if [[ `uname` == "Darwin" ]]
+if [ "`uname`" = "Darwin" ]
 then
   open -a XQuartz
 fi
 
-if [[ -z $SUDO_UID ]]
+if [ -z "$SUDO_UID" ]
 then
   xhost +localhost
 else
