@@ -1,7 +1,7 @@
 # Has to be authorized using:
 # Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser
 $REPO="fredblgr/"
-$IMAGE="docker-3asem-x11"
+$IMAGE="docker-framac"
 $TAG="2021"
 $env:DISPLAY = "localhost:0"
 if (Get-Process vcxsrv -ErrorAction SilentlyContinue) {

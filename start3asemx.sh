@@ -2,7 +2,7 @@
 # Ubuntu 20.04LTS headless noVNC
 # Connect to http://localhost:6080/
 REPO=fredblgr/
-IMAGE=docker-3asem-x11
+IMAGE=docker-framac
 TAG=2021
 
 if [[ -z $SUDO_UID ]]
