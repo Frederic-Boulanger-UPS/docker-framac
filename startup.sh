@@ -23,5 +23,7 @@ then
   echo "# Run docker with --env=\"USERNAME=<user name>\" --env=\"USERID=<user id>\""
   exec /bin/bash
 fi
+# Suppress spurious warnings about failure to connect to the accessibility bus
+export NO_AT_BRIDGE=1
 useradd --create-home --skel /root --shell /bin/bash --user-group --password ubuntu --non-unique --uid $USERID $USERNAME
 exec su $USERNAME

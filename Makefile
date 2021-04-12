@@ -75,18 +75,18 @@ clobber:
 
 run:
 	docker run --rm --tty --interactive \
-		--env="USERNAME=`id -n -u`" --env="USERID=`id -u`" \
-		--volume ${PWD}:/workspace:rw \
+		--env USERNAME="`id -n -u`" --env USERID="`id -u`" \
+		--volume "${PWD}":/workspace:rw \
 		--workdir /workspace \
 		--name $(NAME) \
-		--env="DISPLAY=host.docker.internal:0" \
+		--env DISPLAY="host.docker.internal:0" \
 		$(REPO)$(NAME):$(TAG)-$(ARCH)
 
 runasroot:
 	docker run --rm --tty --interactive \
-		--volume ${PWD}:/workspace:rw \
+		--volume "${PWD}":/workspace:rw \
 		--workdir /workspace \
 		--name $(NAME) \
-		--env="DISPLAY=host.docker.internal:0" \
+		--env DISPLAY="host.docker.internal:0" \
 		--user 0 \
 		$(REPO)$(NAME):$(TAG)-$(ARCH)
